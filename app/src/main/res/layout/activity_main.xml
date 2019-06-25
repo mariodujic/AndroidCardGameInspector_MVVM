@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".shared.activities.MainActivity"
+        android:background="#000000">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/village_background"
+            android:scaleType="centerCrop"
+            android:alpha="0.5"/>
+
+    <fragment
+            android:id="@+id/card_fragment_container"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:navGraph="@navigation/nav_cards"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/card_navigation_menu"
+            app:itemIconTint="@drawable/bottom_nav_selector"
+            app:itemTextColor="@color/light_blue"
+            android:background="@color/colorPrimaryDark"
+            app:elevation="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

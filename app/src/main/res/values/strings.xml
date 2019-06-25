@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">legends</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_cards">Cards</string>
+    <string name="custom_decks">Decks</string>
+    <string name="btn_add_to_deck">Add To Deck</string>
+    <string name="card_title">Title - %1$s</string>
+    <string name="card_rarity">Rarity - %1$s</string>
+    <string name="card_type">Type - %1$s</string>
+    <string name="card_soul_summon">Soul summon - %d Soul Stone</string>
+    <string name="card_soul_trap">Soul type - %d Soul Stone</string>
+</resources>

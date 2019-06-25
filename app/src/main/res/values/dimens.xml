@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_stats">20sp</dimen>
+    <dimen name="card_stats_width">25dp</dimen>
+    <dimen name="card_stats_middle_stats_margin">16dp</dimen>
+    <dimen name="normal_padding">8dp</dimen>
+    <dimen name="minor_padding">4dp</dimen>
+</resources>

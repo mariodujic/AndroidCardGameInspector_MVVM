@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/clean_orange</color>
+    <color name="colorPrimaryDark">@color/medium_brown</color>
+    <color name="colorAccent">@color/yellow</color>
+
+    <color name="medium_brown">#615742</color>
+    <color name="clean_orange">#C66746</color>
+    <color name="orange">#EDA115</color>
+    <color name="yellow">#FCD237</color>
+    <color name="light_blue">#69C9F3</color>
+    <color name="dark_brown">#413828</color>
+    <color name="white">#E4DDC9</color>
+</resources>
