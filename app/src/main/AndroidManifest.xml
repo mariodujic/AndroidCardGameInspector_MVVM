@@ -13,7 +13,7 @@
             android:theme="@style/AppTheme"
             android:name=".shared.application.CustomApplication"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".shared.activities.MainActivity">
+        <activity android:name="com.groundzero.legends.shared.ui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

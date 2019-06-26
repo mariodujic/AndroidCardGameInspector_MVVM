@@ -1,12 +1,9 @@
-package com.groundzero.legends.shared.activities
+package com.groundzero.legends.shared.ui.activities
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.groundzero.legends.shared.dialogs
+package com.groundzero.legends.shared.ui.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater

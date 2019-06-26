@@ -38,7 +38,7 @@
     </fragment>
 
     <fragment android:id="@+id/singleCardFragment"
-              android:name="com.groundzero.legends.shared.fragments.SingleCardFragment"
+              android:name="com.groundzero.legends.shared.ui.fragments.SingleCardFragment"
               android:label="Card"
               tools:layout="@layout/fragment_single_card"/>
 </navigation>

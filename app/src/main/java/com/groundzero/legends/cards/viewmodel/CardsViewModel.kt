@@ -21,24 +21,22 @@ class CardsViewModel(foundationComponent: FoundationComponent) : ViewModel() {
 
     init {
         foundationComponent.inject(this)
-    }
 
-    fun setCards() {
         cardService.fetchAllCards().enqueue(object: Callback<Cards> {
-            override fun onFailure(call: Call<Cards>, t: Throwable) {
-                cards.value = null
-            }
 
             override fun onResponse(call: Call<Cards>, response: Response<Cards>) {
                 cards.value = response.body()
             }
 
+            override fun onFailure(call: Call<Cards>, t: Throwable) {
+                cards.value = null
+            }
         })
     }
 
     fun getCards() = cards
 
-    fun setSelectedCard(card: Card) {
+    fun onCardSelect(card: Card) {
         selectedCard.value = card
     }
 

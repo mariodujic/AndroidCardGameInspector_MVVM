@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.groundzero.legends.R
-import com.groundzero.legends.shared.fragments.BaseFragment
+import com.groundzero.legends.shared.ui.fragments.BaseFragment
 
 const val FRAGMENT_TITLE = "Your Decks"
 

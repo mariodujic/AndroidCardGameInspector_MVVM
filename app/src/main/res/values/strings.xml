@@ -11,4 +11,5 @@
     <string name="card_type">Type - %1$s</string>
     <string name="card_soul_summon">Soul summon - %d Soul Stone</string>
     <string name="card_soul_trap">Soul type - %d Soul Stone</string>
+    <string name="error_unable_to_fetch_cards">Was unable to fetch cards</string>
 </resources>

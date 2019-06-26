@@ -1,4 +1,4 @@
-package com.groundzero.legends.shared.fragments
+package com.groundzero.legends.shared.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.groundzero.legends.R
 import com.groundzero.legends.cards.viewmodel.CardsViewModel
-import com.groundzero.legends.shared.dialogs.DecksDialog
+import com.groundzero.legends.shared.ui.dialogs.DecksDialog
 import com.groundzero.legends.shared.listeners.CardToDeckListener
 import com.groundzero.legends.shared.models.Card
 import com.groundzero.legends.shared.utils.FragmentNavigationUtils

@@ -1,9 +1,10 @@
-package com.groundzero.legends.shared.fragments
+package com.groundzero.legends.shared.ui.fragments
 
 import android.content.Context
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.groundzero.legends.cards.viewmodel.CardsViewModelFactory
-import com.groundzero.legends.shared.activities.MainActivity
+import com.groundzero.legends.shared.ui.activities.MainActivity
 import com.groundzero.legends.shared.application.CustomApplication
 import com.groundzero.legends.shared.di.components.FoundationComponent
 import com.groundzero.legends.shared.di.modules.FoundationModule
@@ -25,4 +26,9 @@ open class BaseFragment(private val fragmentTitle: String) : Fragment() {
             )
 
     fun cardsViewFactory() = CardsViewModelFactory(getFoundationComponent())
+
+
+    fun showErrorToast(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
 }
