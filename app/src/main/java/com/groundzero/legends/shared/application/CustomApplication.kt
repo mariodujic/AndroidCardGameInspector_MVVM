@@ -1,8 +1,8 @@
 package com.groundzero.legends.shared.application
 
 import android.app.Application
-import com.groundzero.legends.shared.di.components.ApplicationComponent
-import com.groundzero.legends.shared.di.components.DaggerApplicationComponent
+import com.groundzero.legends.shared.application.di.components.ApplicationComponent
+import com.groundzero.legends.shared.application.di.components.DaggerApplicationComponent
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 class CustomApplication : Application() {
