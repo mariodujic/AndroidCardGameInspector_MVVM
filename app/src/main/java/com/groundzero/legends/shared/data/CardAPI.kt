@@ -1,6 +1,5 @@
-package com.groundzero.legends.shared.core
+package com.groundzero.legends.shared.data
 
-import com.groundzero.legends.shared.data.Cards
 import retrofit2.Call
 import retrofit2.http.GET
 
