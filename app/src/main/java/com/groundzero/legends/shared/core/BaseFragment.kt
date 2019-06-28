@@ -32,7 +32,6 @@ open class BaseFragment(private val fragmentTitle: String) : Fragment() {
         (activity!!.application as CustomApplication)
             .getApplicationComponent()
             .foundationComponent(
-                FoundationModule(activity!!),
                 NetworkModule(),
                 LogModule(),
                 CardModule(),

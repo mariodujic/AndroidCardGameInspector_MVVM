@@ -1,12 +1,11 @@
 package com.groundzero.legends.shared.utils
 
-import android.app.Activity
 import android.util.Log
 import javax.inject.Inject
 
-class Logger @Inject constructor(private val activity: Activity) {
+class Logger @Inject constructor() {
 
-    fun doLog(message: String){
-        Log.d(activity.localClassName, message)
+    fun doLog(message: String) {
+        Log.d(LOGGER, message)
     }
 }

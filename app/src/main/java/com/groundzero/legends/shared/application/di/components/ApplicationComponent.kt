@@ -9,7 +9,6 @@ interface ApplicationComponent {
 
     fun inject(application: Application)
     fun foundationComponent(
-        foundationModule: FoundationModule,
         networkModule: NetworkModule,
         logModule: LogModule,
         cardModule: CardModule,
