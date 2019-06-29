@@ -6,7 +6,7 @@
             app:startDestination="@id/allCardsFragment">
 
     <fragment android:id="@+id/allCardsFragment"
-              android:name="com.groundzero.legends.cards.AllCardsFragment"
+              android:name="com.groundzero.legends.ui.cards.AllCardsFragment"
               android:label="All Cards"
               tools:layout="@layout/fragment_all_cards">
         <action android:id="@+id/action_allCardsFragment_to_singleCardFragment"
@@ -17,7 +17,7 @@
     </fragment>
 
     <fragment android:id="@+id/decksFragment"
-              android:name="com.groundzero.legends.decks.DecksFragment"
+              android:name="com.groundzero.legends.ui.decks.DecksFragment"
               android:label="My Decks"
               tools:layout="@layout/fragment_decks">
         <action android:id="@+id/action_decksFragment_to_singleDeckFragment"
@@ -28,7 +28,7 @@
     </fragment>
 
     <fragment android:id="@+id/singleDeckFragment"
-              android:name="com.groundzero.legends.decks.SingleDeckFragment"
+              android:name="com.groundzero.legends.ui.decks.SingleDeckFragment"
               android:label="Deck"
               tools:layout="@layout/fragment_single_deck">
         <action android:id="@+id/action_singleDeckFragment_to_singleCardFragment"
@@ -38,7 +38,7 @@
     </fragment>
 
     <fragment android:id="@+id/singleCardFragment"
-              android:name="com.groundzero.legends.shared.ui.SingleCardFragment"
+              android:name="com.groundzero.legends.ui.shared.SingleCardFragment"
               android:label="Card"
               tools:layout="@layout/fragment_single_card"/>
 </navigation>

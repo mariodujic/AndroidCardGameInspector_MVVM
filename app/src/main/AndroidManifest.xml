@@ -11,9 +11,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            android:name=".shared.application.CustomApplication"
+            android:name="com.groundzero.legends.application.CustomApplication"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name="com.groundzero.legends.shared.application.MainActivity">
+        <activity android:name="com.groundzero.legends.ui.shared.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

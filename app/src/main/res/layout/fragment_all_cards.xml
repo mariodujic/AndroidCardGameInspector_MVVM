@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".cards.AllCardsFragment">
+              tools:context="com.groundzero.legends.ui.cards.AllCardsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cards_recycler_view"
