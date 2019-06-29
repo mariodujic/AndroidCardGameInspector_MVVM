@@ -8,7 +8,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 class CustomApplication : Application() {
 
     private val applicationComponent: ApplicationComponent = DaggerApplicationComponent.builder().build()
-    init { applicationComponent.inject(this) }
+
+    init {
+        applicationComponent.inject(this)
+    }
+
     fun getApplicationComponent(): ApplicationComponent = applicationComponent
 
     override fun onCreate() {

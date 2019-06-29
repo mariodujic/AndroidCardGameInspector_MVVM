@@ -1,11 +1,11 @@
 package com.groundzero.legends.data
 
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.GET
 
 interface CardApi {
 
     @GET("cards")
     fun getCards(
-    ): Call<Cards>
+    ): Single<Cards>
 }

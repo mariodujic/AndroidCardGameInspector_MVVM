@@ -4,11 +4,14 @@ import android.content.Context
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.groundzero.legends.ui.cards.CardsViewModel
-import com.groundzero.legends.ui.cards.CardsViewModelFactory
 import com.groundzero.legends.application.CustomApplication
 import com.groundzero.legends.di.components.FoundationComponent
-import com.groundzero.legends.di.modules.*
+import com.groundzero.legends.di.modules.CardModule
+import com.groundzero.legends.di.modules.LogModule
+import com.groundzero.legends.di.modules.NetworkModule
+import com.groundzero.legends.di.modules.ViewModelModule
+import com.groundzero.legends.ui.cards.CardsViewModel
+import com.groundzero.legends.ui.cards.CardsViewModelFactory
 import com.groundzero.legends.utils.Logger
 import javax.inject.Inject
 

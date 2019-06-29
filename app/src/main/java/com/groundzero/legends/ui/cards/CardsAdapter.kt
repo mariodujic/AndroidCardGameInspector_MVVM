@@ -51,8 +51,9 @@ class CardsAdapter(
                 .load(card.imageUrl)
                 .placeholder(R.drawable.loading_image)
                 .into(image!!)
-
             button!!.setOnClickListener(listener.addCardToDeckListener(card))
         }
+
+
     }
 }

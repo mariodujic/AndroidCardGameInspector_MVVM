@@ -8,8 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.groundzero.legends.R
-import com.groundzero.legends.ui.shared.BaseFragment
 import com.groundzero.legends.data.Card
+import com.groundzero.legends.ui.shared.BaseFragment
 import com.groundzero.legends.ui.shared.DecksDialog
 import com.groundzero.legends.ui.shared.SingleCardListener
 import com.groundzero.legends.utils.FragmentNavigationUtils
@@ -60,5 +60,10 @@ class AllCardsFragment : BaseFragment(FRAGMENT_TITLE), SingleCardListener {
                 FragmentNavigationUtils.openDialog(fragmentManager!!, DecksDialog(), "deck_dialog")
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.onClear()
     }
 }

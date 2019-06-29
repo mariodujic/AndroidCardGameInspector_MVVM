@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.groundzero.legends.core.CardService
 import javax.inject.Inject
 
-class CardsViewModelFactory @Inject constructor(private val cardService: CardService): ViewModelProvider.Factory {
+class CardsViewModelFactory @Inject constructor(private val cardService: CardService) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return if (modelClass.isAssignableFrom(CardsViewModel::class.java)) {
