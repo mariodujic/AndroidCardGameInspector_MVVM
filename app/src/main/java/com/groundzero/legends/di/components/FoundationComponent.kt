@@ -20,5 +20,4 @@ import javax.inject.Singleton
 interface FoundationComponent {
 
     fun inject(baseFragment: BaseFragment)
-    fun inject(any: Any)
 }

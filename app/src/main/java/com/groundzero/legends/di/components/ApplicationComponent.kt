@@ -8,7 +8,6 @@ import dagger.Component
 interface ApplicationComponent {
 
     fun inject(application: Application)
-    fun inject(test: Any)
 
     fun foundationComponent(
         networkModule: NetworkModule,
