@@ -1,4 +1,4 @@
-package com.groundzero.legends
+package com.groundzero.legends.core
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
