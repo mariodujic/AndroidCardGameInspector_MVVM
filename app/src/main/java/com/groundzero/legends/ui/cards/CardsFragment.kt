@@ -15,14 +15,14 @@ import com.groundzero.legends.ui.shared.SingleCardListener
 import com.groundzero.legends.utils.FragmentNavigationUtils
 import kotlinx.android.synthetic.main.fragment_all_cards.view.*
 
-const val FRAGMENT_TITLE = "All Cards"
-
-class AllCardsFragment : BaseFragment(FRAGMENT_TITLE), SingleCardListener {
+class AllCardsFragment : BaseFragment(), SingleCardListener {
 
     private lateinit var mView: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.fragment_all_cards, container, false)
+        fragmentTitleSubject.onNext(resources.getString(R.string.cards_fragment_title))
+        viewModel.fetchCards()
         setRecyclerPreferences()
         subscribeCards()
         return mView

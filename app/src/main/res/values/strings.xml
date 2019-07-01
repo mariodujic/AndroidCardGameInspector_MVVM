@@ -12,4 +12,8 @@
     <string name="card_soul_summon">Soul summon - %d Soul Stone</string>
     <string name="card_soul_trap">Soul type - %d Soul Stone</string>
     <string name="error_unable_to_fetch_cards">Was unable to fetch cards</string>
+    <string name="cards_fragment_title">All Cards</string>
+    <string name="decks_fragment_title">Your Decks</string>
+    <string name="single_card_fragment_title">Single Card</string>
+    <string name="error_cannot_set_fragment_title">Unable to set fragment title</string>
 </resources>

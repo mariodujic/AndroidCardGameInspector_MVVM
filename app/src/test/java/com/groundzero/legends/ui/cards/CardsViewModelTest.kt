@@ -3,8 +3,13 @@ package com.groundzero.legends.ui.cards
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.groundzero.legends.core.NetworkInstance
 import com.groundzero.legends.data.Card
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.android.plugins.RxAndroidPlugins
+
+
 
 
 class CardsViewModelTest {

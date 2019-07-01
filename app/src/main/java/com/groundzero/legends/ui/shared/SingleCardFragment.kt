@@ -12,12 +12,11 @@ import com.groundzero.legends.utils.FragmentNavigationUtils
 import kotlinx.android.synthetic.main.fragment_single_card.*
 import kotlinx.android.synthetic.main.fragment_single_card.view.*
 
-const val FRAGMENT_TITLE = "Single Card"
-
-class SingleCardFragment : BaseFragment(FRAGMENT_TITLE), CardToDeckListener {
+class SingleCardFragment : BaseFragment(), CardToDeckListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_single_card, container, false)
+        fragmentTitleSubject.onNext(resources.getString(R.string.single_card_fragment_title))
         viewModel.getSelectedCard().observe(viewLifecycleOwner, Observer { card ->
             loadViews(card)
             loadViewListeners(view, card)

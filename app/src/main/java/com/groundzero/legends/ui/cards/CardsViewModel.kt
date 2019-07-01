@@ -16,11 +16,7 @@ class CardsViewModel constructor(private val cardService: CardService) : ViewMod
     private val cardsLiveData: MutableLiveData<Cards> = MutableLiveData()
     private val selectedCardLiveData: MutableLiveData<Card> = MutableLiveData()
 
-    init {
-        fetchCards()
-    }
-
-    private fun fetchCards() {
+    fun fetchCards() {
         cardService.fetchAllCards()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
