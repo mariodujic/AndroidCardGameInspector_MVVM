@@ -24,7 +24,7 @@ class AllCardsFragment : BaseFragment(), SingleCardListener {
         fragmentTitleSubject.onNext(resources.getString(R.string.cards_fragment_title))
         viewModel.fetchCards()
         setRecyclerPreferences()
-        subscribeCards()
+        subscribeToCards()
         return mView
     }
 
@@ -35,7 +35,7 @@ class AllCardsFragment : BaseFragment(), SingleCardListener {
         mView.cards_recycler_view.layoutManager = linearLayoutManager
     }
 
-    private fun subscribeCards() {
+    private fun subscribeToCards() {
         viewModel.getCards().observe(viewLifecycleOwner, Observer { result ->
             if (result != null) {
                 mView.cards_recycler_view.adapter = CardsAdapter(context!!, this, result.cards)

@@ -1,9 +1,9 @@
 package com.groundzero.legends.di.modules
 
 import com.groundzero.legends.core.CardService
+import com.groundzero.legends.data.CardApi
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
 import javax.inject.Named
 
 @Module(
@@ -13,6 +13,6 @@ class CardModule {
 
     @Provides
     @Named("cardService")
-    fun provideCardService(@Named("retrofit") retrofit: Retrofit?): CardService =
-        CardService(retrofit!!)
+    fun provideCardService(@Named("cardApi") cardApi: CardApi): CardService =
+        CardService(cardApi)
 }

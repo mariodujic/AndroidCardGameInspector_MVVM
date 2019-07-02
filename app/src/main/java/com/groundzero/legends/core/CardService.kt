@@ -5,8 +5,9 @@ import com.groundzero.legends.data.Cards
 import io.reactivex.Single
 import retrofit2.Retrofit
 import javax.inject.Inject
+import javax.inject.Named
 
-class CardService @Inject constructor(private val retrofit: Retrofit) {
+class CardService @Inject constructor(private val cardApi: CardApi) {
 
-    fun fetchAllCards(): Single<Cards> = retrofit.create(CardApi::class.java).getCards()
+    fun fetchAllCards(): Single<Cards> = cardApi.getCards()
 }

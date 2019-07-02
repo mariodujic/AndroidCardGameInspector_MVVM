@@ -2,6 +2,7 @@ package com.groundzero.legends.di.modules
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.groundzero.legends.data.CardApi
 import com.groundzero.legends.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -11,7 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 class NetworkModule {
@@ -28,9 +28,7 @@ class NetworkModule {
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()
 
-    @Singleton
     @Provides
-    @Named("retrofit")
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -38,4 +36,8 @@ class NetworkModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(provideHttpClient())
             .build()
+
+    @Provides
+    @Named("cardApi")
+    fun provideCardApi(): CardApi = provideRetrofit().create(CardApi::class.java)
 }

@@ -6,11 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.groundzero.legends.R
 import com.groundzero.legends.application.CustomApplication
-import com.groundzero.legends.di.components.FoundationComponent
-import com.groundzero.legends.di.modules.CardModule
-import com.groundzero.legends.di.modules.LogModule
-import com.groundzero.legends.di.modules.NetworkModule
-import com.groundzero.legends.di.modules.ViewModelModule
 import com.groundzero.legends.ui.cards.CardsViewModel
 import com.groundzero.legends.ui.cards.CardsViewModelFactory
 import com.groundzero.legends.utils.Logger
@@ -30,24 +25,14 @@ open class BaseFragment : Fragment() {
     lateinit var logger: Logger
     // When entering fragment, fragment title is being changed.
     protected val fragmentTitleSubject: Subject<String> = BehaviorSubject.create()
-    private lateinit var mFragmentTitleDisposables: Disposable
+    private lateinit var fragmentTitleDisposables: Disposable
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        getFoundationComponent().inject(this)
+        (activity!!.application as CustomApplication).getFoundationComponent().inject(this)
         viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(CardsViewModel::class.java)
         fragmentTitleSubject.subscribe(fragmentTitleObserver())
     }
-
-    private fun getFoundationComponent(): FoundationComponent =
-        (activity!!.application as CustomApplication)
-            .getApplicationComponent()
-            .foundationComponent(
-                NetworkModule(),
-                LogModule(),
-                CardModule(),
-                ViewModelModule()
-            )
 
     fun showErrorToast(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
@@ -59,7 +44,7 @@ open class BaseFragment : Fragment() {
             }
 
             override fun onSubscribe(disposable: Disposable) {
-                mFragmentTitleDisposables = disposable
+                fragmentTitleDisposables = disposable
             }
 
             override fun onNext(fragmentTitle: String) {
@@ -74,6 +59,6 @@ open class BaseFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        mFragmentTitleDisposables.dispose()
+        fragmentTitleDisposables.dispose()
     }
 }
