@@ -19,18 +19,16 @@ open class BaseFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: CardsViewModelFactory
+    @Inject
     protected lateinit var viewModel: CardsViewModel
-
     @Inject
     lateinit var logger: Logger
-    // When entering fragment, fragment title is being changed.
+    // When entering new fragment, fragment title is being changed.
     protected val fragmentTitleSubject: Subject<String> = BehaviorSubject.create()
     private lateinit var fragmentTitleDisposables: Disposable
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         (activity!!.application as CustomApplication).getFoundationComponent().inject(this)
-        viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(CardsViewModel::class.java)
         fragmentTitleSubject.subscribe(fragmentTitleObserver())
     }
 
@@ -52,7 +50,7 @@ open class BaseFragment : Fragment() {
             }
 
             override fun onError(e: Throwable) {
-                showErrorToast(resources.getString(R.string.error_cannot_set_fragment_title))
+                 showErrorToast(resources.getString(R.string.error_cannot_set_fragment_title))
             }
         }
     }

@@ -3,6 +3,7 @@ package com.groundzero.legends.core
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.groundzero.legends.core.CardService
+import com.groundzero.legends.data.CardApi
 import com.groundzero.legends.utils.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -22,5 +23,7 @@ class NetworkInstance {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
 
-    fun getCardService(): CardService = CardService(getRetrofit())
+    private fun getCardApi(): CardApi = getRetrofit().create(CardApi::class.java)
+
+    fun getCardService(): CardService = CardService(getCardApi())
 }

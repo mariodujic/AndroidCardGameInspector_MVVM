@@ -7,13 +7,11 @@ import dagger.Provides
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module(
-    includes = [CardModule::class]
-)
+@Module
 class ViewModelModule {
 
     @Singleton
     @Provides
-    fun provideCardsViewModelFactory(@Named("cardService") cardService: CardService): CardsViewModelFactory =
+    fun provideCardsViewModelFactory(cardService: CardService): CardsViewModelFactory =
         CardsViewModelFactory(cardService)
 }

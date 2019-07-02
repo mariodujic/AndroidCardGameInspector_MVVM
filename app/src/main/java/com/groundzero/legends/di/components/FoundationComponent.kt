@@ -1,7 +1,5 @@
 package com.groundzero.legends.di.components
 
-import com.groundzero.legends.di.modules.CardModule
-import com.groundzero.legends.di.modules.LogModule
 import com.groundzero.legends.di.modules.NetworkModule
 import com.groundzero.legends.di.modules.ViewModelModule
 import com.groundzero.legends.ui.shared.BaseFragment
@@ -12,8 +10,6 @@ import javax.inject.Singleton
 @Subcomponent(
     modules = [
         NetworkModule::class,
-        LogModule::class,
-        CardModule::class,
         ViewModelModule::class
     ]
 )

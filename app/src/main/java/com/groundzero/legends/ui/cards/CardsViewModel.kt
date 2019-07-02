@@ -9,8 +9,11 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class CardsViewModel constructor(private val cardService: CardService) : ViewModel() {
+@Singleton
+class CardsViewModel @Inject constructor(private val cardService: CardService) : ViewModel() {
 
     private lateinit var mDisposable: Disposable
     private val cardsLiveData: MutableLiveData<Cards> = MutableLiveData()

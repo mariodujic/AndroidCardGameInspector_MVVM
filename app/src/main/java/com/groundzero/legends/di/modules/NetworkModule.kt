@@ -38,6 +38,5 @@ class NetworkModule {
             .build()
 
     @Provides
-    @Named("cardApi")
     fun provideCardApi(): CardApi = provideRetrofit().create(CardApi::class.java)
 }

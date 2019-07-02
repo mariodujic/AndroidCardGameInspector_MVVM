@@ -11,8 +11,6 @@ interface ApplicationComponent {
 
     fun foundationComponent(
         networkModule: NetworkModule,
-        logModule: LogModule,
-        cardModule: CardModule,
         viewModelModule: ViewModelModule
     ): FoundationComponent
 }
