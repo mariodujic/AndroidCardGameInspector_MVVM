@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.groundzero.legends.R
 import com.groundzero.legends.ui.cards.CardsAdapter
@@ -27,7 +29,7 @@ class DecksFragment : BaseFragment() {
     }
 
     private fun setRecyclerPreferences(view: View) {
-        val linearLayoutManager = GridLayoutManager(context, 2)
+        val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         view.decks_recycler_view.setHasFixedSize(true)
         view.decks_recycler_view.layoutManager = linearLayoutManager

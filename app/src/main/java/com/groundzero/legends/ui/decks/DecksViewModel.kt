@@ -6,7 +6,6 @@ import com.groundzero.legends.data.persistence.decks.DeckEntity
 import com.groundzero.legends.data.persistence.decks.DecksRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class DecksViewModel @Inject constructor(private val decksRepository: DecksRepository) {
@@ -18,7 +17,6 @@ class DecksViewModel @Inject constructor(private val decksRepository: DecksRepos
     fun onActive() {
         disposable = decksRepository.run {
             getDecks()
-                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { t -> decksLiveData.value = t }
         }

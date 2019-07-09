@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-        android:id="@+id/name"
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-</TextView>
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_decks"
+        android:layout_margin="@dimen/minimal_padding"
+        android:gravity="center_vertical">
+    <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_stats"
+            android:layout_margin="@dimen/normal_padding"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_stats"
+            android:layout_margin="@dimen/normal_padding"
+            android:textColor="@color/white"
+            android:gravity="right"/>
+    <ImageView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/normal_padding"
+            android:src="@mipmap/card_back"
+            android:contentDescription="@string/card_background"/>
+</LinearLayout>

@@ -2,4 +2,5 @@
 <resources>
     <dimen name="card_stats">20sp</dimen>
     <dimen name="normal_padding">8dp</dimen>
+    <dimen name="minimal_padding">4dp</dimen>
 </resources>

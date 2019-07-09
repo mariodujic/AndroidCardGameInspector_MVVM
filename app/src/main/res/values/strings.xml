@@ -17,4 +17,5 @@
     <string name="single_card_fragment_title">Single Card</string>
     <string name="error_cannot_set_fragment_title">Unable to set fragment title</string>
     <string name="new_deck_btn">New Deck</string>
+    <string name="card_background">card_background</string>
 </resources>
