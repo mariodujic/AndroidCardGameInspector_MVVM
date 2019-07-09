@@ -1,5 +1,6 @@
-package com.groundzero.legends.data
+package com.groundzero.legends.data.network
 
+import com.groundzero.legends.data.shared.Cards
 import io.reactivex.Single
 import retrofit2.http.GET
 

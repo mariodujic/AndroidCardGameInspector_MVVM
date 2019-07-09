@@ -1,10 +1,12 @@
 package com.groundzero.legends.ui.cards
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.groundzero.legends.core.CardService
-import com.groundzero.legends.data.Card
-import com.groundzero.legends.data.Cards
+import com.groundzero.legends.data.shared.Card
+import com.groundzero.legends.data.shared.Cards
+import com.groundzero.legends.ui.shared.ViewModelBase
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -13,13 +15,13 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CardsViewModel @Inject constructor(private val cardService: CardService) : ViewModel() {
+class CardsViewModel @Inject constructor(private val cardService: CardService) : ViewModel(), ViewModelBase {
 
-    private lateinit var mDisposable: Disposable
+    private lateinit var disposable: Disposable
     private val cardsLiveData: MutableLiveData<Cards> = MutableLiveData()
     private val selectedCardLiveData: MutableLiveData<Card> = MutableLiveData()
 
-    fun fetchCards() {
+    override fun onActive() {
         cardService.fetchAllCards()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -29,11 +31,11 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
                 }
 
                 override fun onSubscribe(disposable: Disposable) {
-                    mDisposable = disposable
+                    this@CardsViewModel.disposable = disposable
                 }
 
                 override fun onError(e: Throwable) {
-                    cardsLiveData.value = null
+                    Log.d("bogger", e.message)
                 }
 
             })
@@ -47,7 +49,7 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
 
     fun getSelectedCard() = selectedCardLiveData
 
-    fun onClear() {
-        mDisposable.dispose()
+    override fun onClear() {
+        disposable.dispose()
     }
 }

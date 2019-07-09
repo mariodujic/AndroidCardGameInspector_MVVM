@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.groundzero.legends.R
-import com.groundzero.legends.data.Card
+import com.groundzero.legends.data.shared.Card
 import com.groundzero.legends.utils.FragmentNavigationUtils
 import kotlinx.android.synthetic.main.fragment_single_card.*
 import kotlinx.android.synthetic.main.fragment_single_card.view.*
@@ -17,7 +17,7 @@ class SingleCardFragment : BaseFragment(), CardToDeckListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_single_card, container, false)
         fragmentTitleSubject.onNext(resources.getString(R.string.single_card_fragment_title))
-        viewModel.getSelectedCard().observe(viewLifecycleOwner, Observer { card ->
+        cardsViewModel.getSelectedCard().observe(viewLifecycleOwner, Observer { card ->
             loadViews(card)
             loadViewListeners(view, card)
         })

@@ -3,11 +3,12 @@ package com.groundzero.legends.ui.shared
 import android.content.Context
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.groundzero.legends.R
 import com.groundzero.legends.application.CustomApplication
+import com.groundzero.legends.data.persistence.decks.DecksDao
 import com.groundzero.legends.ui.cards.CardsViewModel
 import com.groundzero.legends.ui.cards.CardsViewModelFactory
+import com.groundzero.legends.ui.decks.DecksViewModel
 import com.groundzero.legends.utils.Logger
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
@@ -20,7 +21,11 @@ open class BaseFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: CardsViewModelFactory
     @Inject
-    protected lateinit var viewModel: CardsViewModel
+    protected lateinit var cardsViewModel: CardsViewModel
+    @Inject
+    protected lateinit var decksViewModel: DecksViewModel
+    @Inject
+    lateinit var cardsDao: DecksDao
     @Inject
     lateinit var logger: Logger
     // When entering new fragment, fragment title is being changed.
@@ -50,7 +55,7 @@ open class BaseFragment : Fragment() {
             }
 
             override fun onError(e: Throwable) {
-                 showErrorToast(resources.getString(R.string.error_cannot_set_fragment_title))
+                showErrorToast(resources.getString(R.string.error_cannot_set_fragment_title))
             }
         }
     }

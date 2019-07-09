@@ -1,4 +1,4 @@
-package com.groundzero.legends.data
+package com.groundzero.legends.data.shared
 
 data class Cards(var cards: List<Card>)
 

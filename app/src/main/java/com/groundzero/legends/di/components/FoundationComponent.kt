@@ -1,7 +1,7 @@
 package com.groundzero.legends.di.components
 
 import com.groundzero.legends.di.modules.NetworkModule
-import com.groundzero.legends.di.modules.ViewModelModule
+import com.groundzero.legends.di.modules.PersistenceModule
 import com.groundzero.legends.ui.shared.BaseFragment
 import dagger.Subcomponent
 import javax.inject.Singleton
@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Subcomponent(
     modules = [
         NetworkModule::class,
-        ViewModelModule::class
+        PersistenceModule::class
     ]
 )
 interface FoundationComponent {

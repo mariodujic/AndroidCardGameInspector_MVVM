@@ -2,7 +2,7 @@ package com.groundzero.legends.ui.cards
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.groundzero.legends.core.NetworkInstance
-import com.groundzero.legends.data.Card
+import com.groundzero.legends.data.shared.Card
 import org.junit.Rule
 import org.junit.Test
 

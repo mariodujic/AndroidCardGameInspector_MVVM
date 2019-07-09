@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.groundzero.legends.R
-import com.groundzero.legends.data.Card
+import com.groundzero.legends.data.shared.Card
 import com.groundzero.legends.ui.shared.SingleCardListener
 import kotlinx.android.synthetic.main.item_all_cards.view.*
 
@@ -37,13 +37,9 @@ class CardsAdapter(
 
     class CustomViewHolder(inflater: LayoutInflater, parent: ViewGroup, private var listener: SingleCardListener) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.item_all_cards, parent, false)) {
-        private var image: ImageView? = null
-        private var button: Button? = null
 
-        init {
-            image = itemView.image
-            button = itemView.add_to_deck
-        }
+        private var image: ImageView = itemView.image
+        private var button: Button = itemView.add_to_deck
 
         fun bind(card: Card) {
 
@@ -51,9 +47,7 @@ class CardsAdapter(
                 .load(card.imageUrl)
                 .placeholder(R.drawable.loading_image)
                 .into(image!!)
-            button!!.setOnClickListener(listener.addCardToDeckListener(card))
+            button.setOnClickListener(listener.addCardToDeckListener(card))
         }
-
-
     }
 }

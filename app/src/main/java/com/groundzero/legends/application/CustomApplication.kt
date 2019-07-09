@@ -5,7 +5,7 @@ import com.groundzero.legends.di.components.ApplicationComponent
 import com.groundzero.legends.di.components.DaggerApplicationComponent
 import com.groundzero.legends.di.components.FoundationComponent
 import com.groundzero.legends.di.modules.NetworkModule
-import com.groundzero.legends.di.modules.ViewModelModule
+import com.groundzero.legends.di.modules.PersistenceModule
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 class CustomApplication : Application() {
@@ -17,8 +17,8 @@ class CustomApplication : Application() {
         applicationComponent.inject(this)
         foundationComponent = applicationComponent
             .foundationComponent(
-                NetworkModule(),
-                ViewModelModule()
+                PersistenceModule(this),
+                NetworkModule()
             )
     }
 

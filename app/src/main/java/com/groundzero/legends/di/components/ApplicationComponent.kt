@@ -10,7 +10,7 @@ interface ApplicationComponent {
     fun inject(application: Application)
 
     fun foundationComponent(
-        networkModule: NetworkModule,
-        viewModelModule: ViewModelModule
+        persistenceModule: PersistenceModule,
+        networkModule: NetworkModule
     ): FoundationComponent
 }

@@ -2,8 +2,7 @@ package com.groundzero.legends.core
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.groundzero.legends.core.CardService
-import com.groundzero.legends.data.CardApi
+import com.groundzero.legends.data.network.CardApi
 import com.groundzero.legends.utils.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
