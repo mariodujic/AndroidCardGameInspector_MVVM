@@ -5,40 +5,36 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.groundzero.legends.core.CardService
 import com.groundzero.legends.data.shared.Card
-import com.groundzero.legends.data.shared.Cards
 import com.groundzero.legends.ui.shared.ViewModelBase
-import io.reactivex.SingleObserver
+import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
 @Singleton
 class CardsViewModel @Inject constructor(private val cardService: CardService) : ViewModel(), ViewModelBase {
 
     private lateinit var disposable: Disposable
-    private val cardsLiveData: MutableLiveData<Cards> = MutableLiveData()
+    private val cardsList = mutableListOf<Card>()
+    private val cardsLiveData: MutableLiveData<List<Card>> = MutableLiveData()
     private val selectedCardLiveData: MutableLiveData<Card> = MutableLiveData()
 
     override fun onActive() {
-        cardService.fetchAllCards()
+        disposable = Flowable.range(0, 3)
+            .doOnSubscribe{ cardsList.clear()}
+            .concatMap { t -> cardService.fetchAllCards(t)
+                .flatMapIterable { response -> response.cards }
+            }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : SingleObserver<Cards> {
-                override fun onSuccess(cards: Cards) {
-                    cardsLiveData.value = cards
-                }
-
-                override fun onSubscribe(disposable: Disposable) {
-                    this@CardsViewModel.disposable = disposable
-                }
-
-                override fun onError(e: Throwable) {
-                    Log.d("bogger", e.message)
-                }
-
-            })
+            .doOnNext { t -> cardsList.add(t) }
+            .subscribe(
+                { cardsLiveData.value = cardsList },
+                { t -> Log.d("logger", t.message + " " + t.localizedMessage) }
+            )
     }
 
     fun getCards() = cardsLiveData

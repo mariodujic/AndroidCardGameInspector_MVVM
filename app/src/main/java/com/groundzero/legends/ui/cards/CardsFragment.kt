@@ -36,7 +36,7 @@ class AllCardsFragment : BaseFragment(), SingleCardListener {
     private fun subscribeCards(view: View) {
         cardsViewModel.getCards().observe(viewLifecycleOwner, Observer { result ->
             if (result != null) {
-                view.cards_recycler_view.adapter = CardsAdapter(context!!, this, result.cards)
+                view.cards_recycler_view.adapter = CardsAdapter(context!!, this, result)
             } else {
                 showErrorToast(resources.getString(R.string.error_unable_to_fetch_cards))
             }
