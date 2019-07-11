@@ -25,12 +25,12 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
     override fun onActive() {
         disposable = Flowable.range(0, 3)
             .doOnSubscribe{ cardsList.clear()}
-            .concatMap { t -> cardService.fetchAllCards(t)
+            .concatMap { iterationNumber -> cardService.fetchAllCards(iterationNumber)
                 .flatMapIterable { response -> response.cards }
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnNext { t -> cardsList.add(t) }
+            .doOnNext { card -> cardsList.add(card) }
             .subscribe(
                 { cardsLiveData.value = cardsList },
                 { t -> Log.d("logger", t.message + " " + t.localizedMessage) }
