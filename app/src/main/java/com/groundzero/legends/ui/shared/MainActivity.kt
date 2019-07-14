@@ -3,6 +3,7 @@ package com.groundzero.legends.ui.shared
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
@@ -54,5 +55,20 @@ class MainActivity : AppCompatActivity() {
         val toolbarTitle: TextView = LayoutInflater.from(activity).inflate(R.layout.toolbar_title, null) as TextView
         toolbarTitle.text = title
         return toolbarTitle
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("logger", "destroyed")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("logger", "start")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("logger", "stop")
     }
 }

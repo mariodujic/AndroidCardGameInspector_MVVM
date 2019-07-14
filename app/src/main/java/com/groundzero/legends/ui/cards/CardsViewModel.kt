@@ -1,6 +1,7 @@
 package com.groundzero.legends.ui.cards
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.groundzero.legends.core.CardService
@@ -13,7 +14,6 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class CardsViewModel @Inject constructor(private val cardService: CardService) : ViewModel(), ViewModelBase {
 
@@ -24,9 +24,10 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
 
     override fun onActive() {
         disposable = Flowable.range(0, 3)
-            .doOnSubscribe{ cardsList.clear()}
-            .concatMap { iterationNumber -> cardService.fetchAllCards(iterationNumber)
-                .flatMapIterable { response -> response.cards }
+            .doOnSubscribe { cardsList.clear() }
+            .concatMap { iterationNumber ->
+                cardService.fetchAllCards(iterationNumber)
+                    .flatMapIterable { response -> response.cards }
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -37,13 +38,13 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
             )
     }
 
-    fun getCards() = cardsLiveData
+    fun getCards(): LiveData<List<Card>> = cardsLiveData
 
     fun onCardSelect(card: Card) {
         selectedCardLiveData.value = card
     }
 
-    fun getSelectedCard() = selectedCardLiveData
+    fun getSelectedCard(): LiveData<Card> = selectedCardLiveData
 
     override fun onClear() {
         disposable.dispose()
