@@ -1,6 +1,5 @@
 package com.groundzero.legends.ui.cards
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +19,7 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
     private lateinit var disposable: Disposable
     private val cardsList = mutableListOf<Card>()
     private val cardsLiveData: MutableLiveData<List<Card>> = MutableLiveData()
+    private val errorCardsLiveData: MutableLiveData<Boolean> = MutableLiveData()
     private val selectedCardLiveData: MutableLiveData<Card> = MutableLiveData()
 
     override fun onActive() {
@@ -34,11 +34,13 @@ class CardsViewModel @Inject constructor(private val cardService: CardService) :
             .doOnNext { card -> cardsList.add(card) }
             .subscribe(
                 { cardsLiveData.value = cardsList },
-                { t -> Log.d("logger", t.message + " " + t.localizedMessage) }
+                { errorCardsLiveData.value = true }
             )
     }
 
     fun getCards(): LiveData<List<Card>> = cardsLiveData
+
+    fun getCardsError(): LiveData<Boolean> = errorCardsLiveData
 
     fun onCardSelect(card: Card) {
         selectedCardLiveData.value = card
